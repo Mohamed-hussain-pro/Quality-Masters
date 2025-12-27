@@ -17,12 +17,8 @@ const App: React.FC = () => {
         <Hero />
         <Services />
         <Clients />
-        <section id="about">
-          <About />
-        </section>
-        <section id="contact">
-          <Contact />
-        </section>
+        <About />
+        <Contact />
       </main>
       <Footer />
       <GeminiAssistant />

@@ -3,6 +3,19 @@ import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
 export const Hero: React.FC = () => {
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    const element = document.getElementById(id);
+    if (element) {
+      const offset = 80;
+      const bodyRect = document.body.getBoundingClientRect().top;
+      const elementRect = element.getBoundingClientRect().top;
+      const elementPosition = elementRect - bodyRect;
+      const offsetPosition = elementPosition - offset;
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-20 bg-slate-950 overflow-hidden" dir="rtl">
       {/* Texture Background */}
@@ -28,6 +41,7 @@ export const Hero: React.FC = () => {
         <div className="flex flex-col sm:flex-row-reverse justify-center items-center gap-4">
           <a 
             href="#contact" 
+            onClick={(e) => scrollToSection(e, 'contact')}
             className="group flex items-center justify-center w-full sm:w-auto bg-amber-500 text-slate-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-amber-400 transition-all"
           >
             ابدأ مشروعك الآن
@@ -35,6 +49,7 @@ export const Hero: React.FC = () => {
           </a>
           <a 
             href="#products" 
+            onClick={(e) => scrollToSection(e, 'products')}
             className="flex items-center justify-center w-full sm:w-auto border border-slate-700 bg-slate-900/50 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-slate-800 transition-all"
           >
             خدمات الهوية والبراندينج
