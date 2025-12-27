@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { BRAND_NAME } from '../constants';
+import { BRAND_NAME, CONTACT_LOCATION, CONTACT_PHONE } from '../constants';
 import { Linkedin, Twitter, Instagram } from 'lucide-react';
 
 export const Footer: React.FC = () => {
@@ -15,6 +15,10 @@ export const Footer: React.FC = () => {
             </div>
             <p className="text-slate-500 max-w-sm mb-8 font-light">
               مجموعة كواليتي ماسترز لخدمات الهوية التجارية والطباعة الفاخرة. نقدم حلولاً متكاملة للشركات والمؤسسات لبناء حضور بصري استثنائي.
+            </p>
+            <p className="text-slate-400 text-sm mb-4">
+              {CONTACT_LOCATION} <br />
+              هاتف: {CONTACT_PHONE}
             </p>
             <div className="flex space-x-reverse space-x-4">
               <a href="#" className="text-slate-600 hover:text-amber-500 transition-colors"><Linkedin size={20} /></a>

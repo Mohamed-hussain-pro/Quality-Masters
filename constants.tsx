@@ -17,6 +17,10 @@ import {
 import { NavItem, ServiceCardProps } from './types';
 
 export const BRAND_NAME = "Quality Masters";
+export const CONTACT_EMAIL = "mohamedesamworld1@gmail.com";
+export const CONTACT_PHONE = "+201117215960";
+export const CONTACT_LOCATION = "السيدة زينب، القاهرة، مصر";
+export const WHATSAPP_LINK = `https://wa.me/201117215960`;
 
 export const NAV_ITEMS: NavItem[] = [
   { label: 'منتجاتنا', href: '#products' },
