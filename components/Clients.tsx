@@ -4,7 +4,7 @@ import React from 'react';
 const CLIENTS = [
   { 
     name: "جامعات", 
-    img: "https://images.unsplash.com/photo-1541339907198-e08756defeee?auto=format&fit=crop&q=80&w=200" 
+    img: "https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&q=80&w=200" 
   },
   { 
     name: "دور نشر", 

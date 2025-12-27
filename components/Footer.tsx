@@ -23,7 +23,10 @@ export const Footer: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         <div className="grid md:grid-cols-4 gap-12 mb-16">
           <div className="col-span-1 md:col-span-2 text-right">
-            <div className="flex items-center space-x-reverse space-x-2 mb-6 cursor-pointer" onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}>
+            <div 
+              className="flex items-center space-x-reverse space-x-2 mb-6 cursor-pointer" 
+              onClick={() => window.scrollTo({top: 0, behavior: 'smooth'})}
+            >
               <div className="w-8 h-8 bg-amber-500 rounded flex items-center justify-center font-bold text-slate-900">Q</div>
               <span className="text-xl font-bold tracking-tight text-white">{BRAND_NAME}</span>
             </div>
@@ -63,9 +66,6 @@ export const Footer: React.FC = () => {
         
         <div className="pt-8 border-t border-slate-900 text-center text-xs text-slate-600 space-y-4">
           <p>© {new Date().getFullYear()} كواليتي ماسترز لخدمات الهوية والطباعة. جميع الحقوق محفوظة.</p>
-          <p className="max-w-4xl mx-auto italic">
-            ملاحظة: جميع خدمات التصميم والطباعة تخضع لمعايير الجودة العالمية المعتمدة لدى شركتنا. نلتزم بحماية العلامات التجارية لعملائنا وسرية تصاميمهم.
-          </p>
         </div>
       </div>
     </footer>

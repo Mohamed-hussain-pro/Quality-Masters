@@ -7,7 +7,7 @@ import { getGeminiResponse } from '../services/geminiService';
 export const GeminiAssistant: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { role: 'assistant', content: 'Welcome to Quality Masters. I am your Strategic Concierge. How may I assist your inquiries today?' }
+    { role: 'assistant', content: 'أهلاً بك في كواليتي ماسترز. أنا مساعدك الذكي، كيف يمكنني مساعدتك في بناء هويتك التجارية اليوم؟' }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -34,15 +34,15 @@ export const GeminiAssistant: React.FC = () => {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-[100]">
+    <div className="fixed bottom-6 right-6 z-[100]" dir="rtl">
       {isOpen ? (
         <div className="glass w-[350px] md:w-[400px] h-[550px] rounded-3xl overflow-hidden flex flex-col shadow-2xl animate-in zoom-in-95 fade-in duration-300">
           <div className="p-4 bg-amber-500 flex justify-between items-center">
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-reverse space-x-2">
               <Bot className="text-slate-900" size={24} />
-              <div className="flex flex-col">
-                <span className="font-bold text-slate-900 text-sm">Strategic Concierge</span>
-                <span className="text-[10px] text-slate-800 uppercase font-bold tracking-widest">AI Powered Intelligence</span>
+              <div className="flex flex-col text-right">
+                <span className="font-bold text-slate-900 text-sm">مستشار الهوية</span>
+                <span className="text-[10px] text-slate-800 uppercase font-bold tracking-widest">ذكاء اصطناعي</span>
               </div>
             </div>
             <button onClick={() => setIsOpen(false)} className="text-slate-900 hover:scale-110 transition-transform">
@@ -56,7 +56,7 @@ export const GeminiAssistant: React.FC = () => {
                 <div className={`max-w-[80%] px-4 py-2.5 rounded-2xl text-sm leading-relaxed ${
                   msg.role === 'user' 
                     ? 'bg-amber-500 text-slate-900 font-medium' 
-                    : 'bg-slate-900 text-slate-300 border border-slate-800'
+                    : 'bg-slate-900 text-slate-300 border border-slate-800 text-right'
                 }`}>
                   {msg.content}
                 </div>
@@ -71,21 +71,21 @@ export const GeminiAssistant: React.FC = () => {
             )}
           </div>
 
-          <div className="p-4 border-t border-slate-800 flex items-center space-x-2">
+          <div className="p-4 border-t border-slate-800 flex items-center space-x-reverse space-x-2">
             <input
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-              placeholder="Ask about our strategy..."
-              className="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-4 py-2 text-white focus:outline-none focus:border-amber-500 transition-colors text-sm"
+              placeholder="اسأل عن خدماتنا..."
+              className="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-4 py-2 text-white focus:outline-none focus:border-amber-500 transition-colors text-sm text-right"
             />
             <button 
               onClick={handleSend}
               disabled={isLoading || !input.trim()}
               className="bg-amber-500 p-2.5 rounded-xl text-slate-900 hover:bg-amber-400 disabled:opacity-50 transition-all"
             >
-              <Send size={18} />
+              <Send size={18} className="rotate-180" />
             </button>
           </div>
         </div>

@@ -6,8 +6,8 @@ import { Services } from './components/Services';
 import { About } from './components/About';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
-import { GeminiAssistant } from './components/GeminiAssistant';
 import { Clients } from './components/Clients';
+import { GeminiAssistant } from './components/GeminiAssistant';
 
 const App: React.FC = () => {
   return (
@@ -21,6 +21,7 @@ const App: React.FC = () => {
         <Contact />
       </main>
       <Footer />
+      {/* Adding the AI Assistant to the interface */}
       <GeminiAssistant />
     </div>
   );

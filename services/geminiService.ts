@@ -18,10 +18,13 @@ Keep responses concise and elegant. Always prioritize the importance of visual c
 Respond in Arabic primarily unless the user speaks English.
 `;
 
+// Helper function to get AI response using history and current input
 export const getGeminiResponse = async (history: Message[], userInput: string): Promise<string> => {
   try {
+    // ALWAYS initialize right before the call to ensure the latest environment variables are used
     const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
     
+    // Format the history for the Gemini API, mapping roles correctly (user -> user, assistant -> model)
     const contents = [
       ...history.map(m => ({
         role: m.role === 'user' ? 'user' : 'model',
@@ -39,11 +42,12 @@ export const getGeminiResponse = async (history: Message[], userInput: string): 
       config: {
         systemInstruction: SYSTEM_INSTRUCTION,
         temperature: 0.7,
-        maxOutputTokens: 500,
+        // maxOutputTokens is omitted to avoid blocking issues as recommended in guidelines
       },
     });
 
-    return response.text || "عذراً، أواجه مشكلة في الاتصال حالياً. يرجى المحاولة لاحقاً أو مراسلتنا عبر النموذج.";
+    // Access the .text property directly as it is not a method
+    return response.text || "عذراً، أواجه مشكلة في الاتصال حالياً. يرجى المحاولة لاحقاً.";
   } catch (error) {
     console.error("Gemini API Error:", error);
     return "أنا حالياً في فترة صيانة. فريقنا متاح عبر نموذج التواصل لمساعدتك شخصياً في بناء هويتك التجارية.";

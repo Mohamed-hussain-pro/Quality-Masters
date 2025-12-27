@@ -1,5 +1,4 @@
 
-// Added React import to resolve the namespace error for React.ReactNode
 import React from 'react';
 
 export interface ServiceCardProps {
@@ -13,6 +12,9 @@ export interface NavItem {
   href: string;
 }
 
+/**
+ * Interface representing a chat message for the Gemini Assistant
+ */
 export interface Message {
   role: 'user' | 'assistant';
   content: string;
